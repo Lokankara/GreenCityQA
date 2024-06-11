@@ -133,10 +133,6 @@ class ClubsPageTest extends ClubsBaseTest {
         assertEnable(sendButton, "Send button");
         clickElementWithJS(sendButton);
 
-//        WebElement actualComment = getVisibleElement(By.xpath("(//div[@class='ant-comment-content-detail']//p)[1]"));
-//        assertEquals(actualComment.getText(), comment, "Comment text does not match");
-//        WebElement author = getVisibleElement(By.xpath("(//div[@class='ant-comment-content-author']//span[@class='name'])[1]"));
-//        assertEquals(firstName +" " + lastName, author.getText(), "Author name does not match");
         isTestSuccessful = true;
     }
 
