@@ -29,12 +29,44 @@ public class InValidProfileUserProvider implements ArgumentsProvider {
                 Arguments.of(LAST_NAME, "", "", "", NEW_PASSWORD, "",
                         Arrays.asList(
                                 userErrorMessages.get(5),
+                                userErrorMessages.get(10),
                                 passwordErrorMessages.get(0),
                                 passwordErrorMessages.get(4)
                         ),
                         Arrays.asList(
                                 userLabelXPaths.get(1),
+                                userLabelXPaths.get(2),
                                 passwordLabelXPaths.get(0),
+                                passwordLabelXPaths.get(3)
+                        )
+                ),
+                Arguments.of(LAST_NAME, "", "", "", "", NEW_PASSWORD,
+                        Arrays.asList(
+                                userErrorMessages.get(5),
+                                userErrorMessages.get(10),
+                                passwordErrorMessages.get(6)
+                        ),
+                        Arrays.asList(
+                                userLabelXPaths.get(1),
+                                userLabelXPaths.get(2),
+                                passwordLabelXPaths.get(3)
+                        )
+                ),
+                Arguments.of("", "", PHONE, "", "", NEW_PASSWORD,
+                        Arrays.asList(
+                                userErrorMessages.get(0),
+                                userErrorMessages.get(5),
+                                passwordErrorMessages.get(0),
+                                passwordErrorMessages.get(1),
+                                passwordErrorMessages.get(3),
+                                passwordErrorMessages.get(6)
+                        ),
+                        Arrays.asList(
+                                userLabelXPaths.get(0),
+                                userLabelXPaths.get(1),
+                                passwordLabelXPaths.get(0),
+                                passwordLabelXPaths.get(1),
+                                passwordLabelXPaths.get(2),
                                 passwordLabelXPaths.get(3)
                         )
                 ),
@@ -520,26 +552,6 @@ public class InValidProfileUserProvider implements ArgumentsProvider {
                                 passwordLabelXPaths.get(0)
                         )
                 ),
-                Arguments.of("", "", PHONE, "", "", NEW_PASSWORD,
-                        Arrays.asList(
-                                userErrorMessages.get(0),
-                                userErrorMessages.get(8),
-                                userErrorMessages.get(10),
-                                passwordErrorMessages.get(0),
-                                passwordErrorMessages.get(1),
-                                passwordErrorMessages.get(3),
-                                passwordErrorMessages.get(6)
-                        ),
-                        Arrays.asList(
-                                userLabelXPaths.get(0),
-                                userLabelXPaths.get(1),
-                                userLabelXPaths.get(2),
-                                passwordLabelXPaths.get(0),
-                                passwordLabelXPaths.get(1),
-                                passwordLabelXPaths.get(2),
-                                passwordLabelXPaths.get(3)
-                        )
-                ),
                 Arguments.of(LAST_NAME, FIRST_NAME, "", "", "", "",
                         Arrays.asList(
                                 userErrorMessages.get(10),
@@ -728,20 +740,6 @@ public class InValidProfileUserProvider implements ArgumentsProvider {
                                 userLabelXPaths.get(0),
                                 userLabelXPaths.get(1),
                                 passwordLabelXPaths.get(1),
-                                passwordLabelXPaths.get(3)
-                        )
-                ),
-                Arguments.of(LAST_NAME, "", "", "", "", NEW_PASSWORD,
-                        Arrays.asList(
-                                userErrorMessages.get(0),
-                                userErrorMessages.get(5),
-                                userErrorMessages.get(10),
-                                passwordErrorMessages.get(6)
-                        ),
-                        Arrays.asList(
-                                userLabelXPaths.get(1),
-                                userLabelXPaths.get(2),
-                                userLabelXPaths.get(3),
                                 passwordLabelXPaths.get(3)
                         )
                 )

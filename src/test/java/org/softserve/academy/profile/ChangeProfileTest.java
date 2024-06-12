@@ -103,7 +103,7 @@ class ChangeProfileTest extends ProfileBaseTest {
     @ParameterizedTest(name = "{index}: {0}, {1}, {2}, {3}, {4}, {5}")
     @DisplayName("6. Test unsuccessful change with invalid values")
     @ArgumentsSource(InValidProfileUserProvider.class)
-    void testUnSuccessfulChangeWithEmptyValue(
+    void testUnSuccessfulChangeWithInValidValue(
             String lastName, String firstName, String phone, String current, String newPass,
             String confirm, List<String> expectedMessages, List<String> xPaths) {
 
@@ -139,7 +139,7 @@ class ChangeProfileTest extends ProfileBaseTest {
                         "Error messages from element does not match expected"));
     }
 
-    @ParameterizedTest(name = "Test change Current Password: {0} newPassword: {1}, confirmPassword: {2}")
+    @ParameterizedTest(name = "Test change info Current password: {0} newPassword: {1}, confirmPassword: {2}")
     @ArgumentsSource(PasswordProvider.class)
     void testPasswordChange(
             String currentPassword, String newPassword, String confirmPassword,
