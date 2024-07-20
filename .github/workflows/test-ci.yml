@@ -2,9 +2,9 @@ name: Java CI with Maven
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "master" ]
 
 permissions:
   contents: write
@@ -55,17 +55,3 @@ jobs:
           name: Test Report for ${{ matrix.os }}
           path: target/surefire-reports/TEST-*.xml
           reporter: java-junit
-
-  check-java-code-style:
-    name: Check Java code style
-
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Clone code from repo
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Run java checkstyle
-        uses: nikitasavinov/checkstyle-action@0.6.0

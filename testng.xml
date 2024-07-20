@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes" thread-count="4">
+
+    <test name="Quick_tests" thread-count="6">
+        <classes>
+            <class name="com.softserve.greencity.ui.tests.SmokeTest"/>
+
+            <class name="com.softserve.greencity.api.tests.econews.positive.CreateNewsWithMinimalValuesTest"/>
+            <class name="com.softserve.greencity.api.tests.econews.negative.CreateNewsWithArrayResponseTest"/>
+            <class name="com.softserve.greencity.api.tests.econews.negative.CreateNewsWithDetailedResponseTest"/>
+            <class name="com.softserve.greencity.api.tests.econews.negative.CreateNewsWithShortResponseTest"/>
+            <class name="com.softserve.greencity.api.tests.comments.econews.EcoNewsCommentsApiTests"/>
+        </classes>
+    </test>
+
+    <test name="Registration_and_login" thread-count="4">
+        <classes>
+            <class name="com.softserve.greencity.ui.tests.signup.RegisterPageTests"/>
+            <class name="com.softserve.greencity.ui.tests.signup.RegistrationTests"/>
+            <class name="com.softserve.greencity.ui.tests.signin.ForgotPasswordTests"/>
+            <class name="com.softserve.greencity.ui.tests.signin.LoginTest"/>
+
+            <class name="com.softserve.greencity.ui.tests.viewsinglenews.EcoNewsSingleViewTest"/>
+        </classes>
+    </test>
+
+    <test name="Google_login" thread-count="1">
+        <classes>
+            <class name="com.softserve.greencity.ui.tests.signin.GoogleSignInTest"/>
+        </classes>
+    </test>
+
+    <test name="Independent_news_creation" thread-count="4">
+        <classes>
+            <class name="com.softserve.greencity.ui.tests.createnews.CreateNewsPositiveTest"/>
+            <class name="com.softserve.greencity.ui.tests.createnews.CreateNewsNegativeTest"/>
+            <class name="com.softserve.greencity.ui.tests.createnews.CreateNewsPreviewTest"/>
+            <class name="com.softserve.greencity.ui.tests.createnews.CreateNewsLegacyTest"/>
+
+            <class name="com.softserve.greencity.ui.tests.comments.CheckElementOfCommentTest"/>
+            <class name="com.softserve.greencity.ui.tests.comments.CommentCreationTest"/>
+            <class name="com.softserve.greencity.ui.tests.comments.CommentsTest"/>
+            <class name="com.softserve.greencity.ui.tests.comments.EcoNewsCommentTest"/>
+            <class name="com.softserve.greencity.ui.tests.comments.replies.DeleteReplyTest"/>
+            <class name="com.softserve.greencity.ui.tests.comments.replies.EditReplyTest"/>
+            <class name="com.softserve.greencity.ui.tests.comments.replies.ReplyTest"/>
+            <class name="com.softserve.greencity.ui.tests.viewallnews.EcoNewsListViewTest"/>
+            <class name="com.softserve.greencity.ui.tests.viewallnews.EcoNewsGridViewTest">
+                <methods>
+                    <exclude name="chronologicalNewsTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Separate_from_news_creation">
+        <classes>
+            <class name="com.softserve.greencity.ui.tests.viewallnews.EcoNewsGridViewTest">
+                <methods>
+                    <include name="chronologicalNewsTest" />
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="Edit_profile" thread-count="4">
+        <classes>
+            <class name="com.softserve.greencity.ui.tests.editprofile.CancelFunctionalityTest"/>
+            <class name="com.softserve.greencity.ui.tests.editprofile.EditPictureTest"/>
+            <class name="com.softserve.greencity.ui.tests.editprofile.EditProfileEditPhotoTest"/>
+            <class name="com.softserve.greencity.ui.tests.editprofile.EditProfileFieldsWarningsTest"/>
+            <class name="com.softserve.greencity.ui.tests.editprofile.EditProfilePrivacyCheckboxesTest"/>
+            <class name="com.softserve.greencity.ui.tests.editprofile.EditProfileText"/>
+            <class name="com.softserve.greencity.ui.tests.editprofile.EditTextFieldsTest"/>
+            <class name="com.softserve.greencity.ui.tests.editprofile.SocialNetworkLinkTest"/>
+        </classes>
+    </test>
+</suite>
