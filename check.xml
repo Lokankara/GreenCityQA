@@ -21,6 +21,7 @@
     <module name="JavadocPackage"/>
     <module name="NewlineAtEndOfFile"/>
     <module name="Translation"/>
+    <module name="FileLength"/>
     <module name="LineLength">
         <property name="fileExtensions" value="java"/>
         <property name="max" value="120"/>
@@ -43,9 +44,7 @@
             <property name="arrayInitIndent" value="4"/>
         </module>
         <module name="InvalidJavadocPosition"/>
-        <module name="JavadocMethod">
-            <property name="checkStyle" value="false"/>
-        </module>
+        <module name="JavadocMethod"/>
         <module name="JavadocType"/>
         <module name="JavadocVariable"/>
         <module name="JavadocStyle"/>
