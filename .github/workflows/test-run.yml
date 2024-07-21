@@ -1,5 +1,12 @@
 name: Green Gity CI Tests
 
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  actions: read
+  checks: write
+
 on:
   push:
     branches: [master]
@@ -79,12 +86,15 @@ jobs:
             tracing/
             video/
 
+      - name: List Report Files
+        run: ls -la target/surefire-reports/test-output
+
       - name: Test Reporter
         uses: dorny/test-reporter@v1.8.0
         if: success() || failure()
         with:
-          name: Luma Project Test Report
-          path: target/surefire-reports/TEST-*.xml
+          name: Project Test Report
+          path: target/surefire-reports/test-output/TEST-*.xml
           reporter: java-junit
 
       - name: Clean up gh-pages branch (optional)
@@ -110,9 +120,9 @@ jobs:
           allure_report: allure-report
           allure_history: allure-history
 
-      - name: Deploy report to Github Pages
-        if: always()
-        uses: peaceiris/actions-gh-pages@v3.9.3
+      - name: Publish Allure test report
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ matrix.os == 'ubuntu-latest' }}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
