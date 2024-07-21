@@ -1,4 +1,4 @@
-name: Luma CI Tests
+name: Green Gity CI Tests
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
 
 jobs:
   run-test:
-    name: 'Run tests'
+    name: 'Green Gity CI Tests'
     runs-on: ubuntu-latest
 
     services:
@@ -52,9 +52,6 @@ jobs:
           path: ~/.m2/repository
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: ${{ runner.os }}-maven-
-
-      - name: Install Playwright
-        run: mvn exec:java -e -D exec.mainClass=com.microsoft.playwright.CLI -D exec.args="install --with-deps"
 
       - name: Maven test
         run: mvn -e test
@@ -159,7 +156,7 @@ jobs:
           reporter: 'github-pr-check'
           tool_name: 'testtool'
           checkstyle_config: 'check.xml'
-          workdir: 'src/test/java/com/luma'
+          workdir: 'src/test/java/com/softserve/greencity'
           level: 'info'
           filter_mode: 'added'
           fail_on_error: 'false'
