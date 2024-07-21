@@ -17,7 +17,6 @@
                   default="checkstyle-suppressions.xml"/>
         <property name="optional" value="true"/>
     </module>
-
     <module name="JavadocPackage"/>
     <module name="NewlineAtEndOfFile"/>
     <module name="Translation"/>
@@ -102,6 +101,9 @@
         <module name="FinalParameters"/>
         <module name="TodoComment"/>
         <module name="UpperEll"/>
+        <module name="JavadocMethod">
+            <property name="checkStyle" value="false"/>
+        </module>
         <module name="SuppressionXpathFilter">
             <property name="file" value="${org.checkstyle.sun.suppressionxpathfilter.config}"
                       default="checkstyle-xpath-suppressions.xml"/>

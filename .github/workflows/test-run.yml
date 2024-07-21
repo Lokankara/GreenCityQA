@@ -80,14 +80,14 @@ jobs:
             video/
 
       - name: List Report Files
-        run: ls -la target/surefire-reports
+        run: ls -la target/surefire-reports/test-output
 
       - name: Test Reporter
         uses: dorny/test-reporter@v1.8.0
         if: success() || failure()
         with:
           name: Project Test Report
-          path: target/surefire-reports/TEST-*.xml
+          path: target/surefire-reports/test-output/TEST-*.xml
           reporter: java-junit
 
       - name: Clean up gh-pages branch (optional)
