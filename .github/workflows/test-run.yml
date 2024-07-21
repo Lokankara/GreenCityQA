@@ -56,14 +56,6 @@ jobs:
       - name: Maven test
         run: mvn -e test
         env:
-          BROWSER_OPTIONS: |
-            browserType=chromium;
-            screenWidth=1366;
-            screenHeight=768;
-            isHeadless=true;
-            slowMo=2000;
-            tracing=true;
-            video=true
           CHROME_OPTIONS: |
             --disable-gpu;
             --no-sandbox;
@@ -74,6 +66,7 @@ jobs:
             --allow-running-insecure-content;
             --ignore-certificate-errors
           CI_RUN: true
+          APP_OPTIONS: user.username=${{ secrets.USER_USERNAME }};user.password=${{ secrets.USER_PASSWORD }}
 
       - name: Attach screenshots and reports
         uses: actions/upload-artifact@v3
@@ -121,7 +114,7 @@ jobs:
         if: always()
         uses: peaceiris/actions-gh-pages@v3.9.3
         with:
-          personal_token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure-history
 
@@ -146,8 +139,6 @@ jobs:
           ls -la
           echo "Listing configuration file"
           cat check.xml
-          echo "Listing work directory"
-          ls -la src/test/java/com/luma
 
       - name: Run java checkstyle
         uses: nikitasavinov/checkstyle-action@master

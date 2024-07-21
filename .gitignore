@@ -29,6 +29,7 @@ hs_err_pid*
 
 TODO.md
 allure_result/
+allure_results/
 logs/
 build/
 target/

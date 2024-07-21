@@ -46,7 +46,18 @@ jobs:
       - name: Build with Maven
         if: ${{ matrix.os == 'ubuntu-latest' }}
         run: mvn clean -e install -Dmaven.test.skip=true
-
+        env:
+          CHROME_OPTIONS: |
+            --disable-gpu;
+            --no-sandbox;
+            --disable-dev-shm-usage;
+            --headless;
+            --window-size=1920,1080;
+            --disable-web-security;
+            --allow-running-insecure-content;
+            --ignore-certificate-errors
+          CI_RUN: true
+          APP_OPTIONS: user.username=${{ secrets.USER_USERNAME }};user.password=${{ secrets.USER_PASSWORD }}
 
       - name: Cross Browser Testing
         if: ${{ matrix.os == 'ubuntu-latest' }}
